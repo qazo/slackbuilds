@@ -1,0 +1,11 @@
+mpv  (a free, cross-platform media player)
+
+mpv is a fork of mplayer2 and MPlayer. It shares some features with
+the former projects while introducing many more.
+
+Homepage: http://mpv.io/
+
+
+ffmpeg is a required dependency
+libass is an optional, but recomended dependency.
+
