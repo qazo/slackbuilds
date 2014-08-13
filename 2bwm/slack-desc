@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+    |-----handy-ruler------------------------------------------------------|
+2bwm: 2bwm floating WM with two borders
+2bwm:
+2bwm: 2bwm is a fast floating WM with the particularity of having two
+2bwm: borders, written over the XCB library and derived from mcwm written
+2bwm: by Michael Cardiell.
+2bwm: In 2bwm everything is accessible from the keyboard but a pointing
+2bwm: device can be used to move, resize and raise/lower.
+2bwm:
+2bwm:
+2bwm: Homepage: http://github.com/venam/2bwm
+2bwm:
