@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+   |-----handy-ruler------------------------------------------------------|
+ldc: ldc - the LLVM-based D compiler
+ldc:
+ldc: The LDC project aims to provide a portable D programming language
+ldc: compiler with modern optimization and code generation capabilities.
+ldc: The compiler uses the official DMD frontends to support the latest
+ldc: version of D2, and relies on the LLVM core libraries for code
+ldc: generation.
+ldc:
+ldc:
+ldc: Homepage: http://mpv.io/
+ldc:

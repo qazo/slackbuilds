@@ -1,0 +1,76 @@
+#!/bin/sh
+
+# Slackware build script for ldc
+# Written by Kwezilomso Mhaga <kwezimhaga@live.com>
+
+PRGNAM=ldc
+VERSION=${VERSION:-0.13.0}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_imd}
+
+if [ -z "$ARCH" ]; then
+	case "$( uname -m )" in
+		i?86) ARCH=i486 ;;
+		arm*) ARCH=arm ;;
+		*) ARCH=$( uname -m ) ;;
+	esac
+fi
+
+CWD=$(pwd)
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+if [ "$ARCH" = "i486" ]; then
+	SLCKFLAGS="-O2 -march=i486 -mtune=i686"
+	LIBDIRSUFFIX=""
+elif [ "$ARCH" = "i686" ]; then
+	SLCKFLAGS="-O2 -march=i686 -mtune=i686"
+	LIBDIRSUFFIX=""
+elif [ "$ARCH" = "x86_64" ]; then
+	SLCKFLAGS="-O2 -fPIC"
+	LIBDIRSUFFIX="64"
+else
+	SLCKFLAGS="-O2"
+	LIBDIRSUFFIX=""
+fi
+
+set -e
+
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+cd $TMP
+rm -rf $PRGNAM-$VERSION
+tar xvf $CWD/$PRGNAM-$VERSION-src.tar.?z*
+cd $PRGNAM-$VERSION-src
+rm $PRGNAM-$VERSION-src
+chown -R root:root .
+find -L . -type f -o -type d \
+ \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+ -o -perm 511 \) -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
+ -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
+
+mkdir -p build
+cd build
+cmake \
+	-DCMAKE_INSTALL_PREFIX=/usr \
+	-DCMAKE_C_FLAGS:SRING="$SLCKFLAGS" \
+	-DCMAKE_CXX_FLAGS:STRING="$SLCKFLAGS" \
+	-DLIB_SUFFIX="$LIBDIRSUFFIX" \
+	-DCMAKE_BUILD_TYPE=Release \
+	-DBUILD_SHARED=ON \
+	-DINCLUDE_INSTALLDIR=/usr/include/d/ldc ..
+make
+make DESTDIR=$PKG install
+cd ..
+
+# Strip binaries
+find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
