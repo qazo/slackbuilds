@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+   |-----handy-ruler------------------------------------------------------|
+xsp: xsp - A small web seb server built with Mono
+xsp:
+xsp: The XSP server is a small web server that hosts the Mono
+xsp: System.Web classes for running what is commonly known as ASP.NET.
+xsp:
+xsp: Homepage: http://github.com/mono/xsp/
+xsp:
+xsp:
+xsp:
+xsp:
+xsp:
