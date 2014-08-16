@@ -4,7 +4,7 @@
 # Written by Kwezilomso Mhaga <kwezimhaga@live.com>
 
 PRGNAM=ldc
-VERSION=${VERSION:-0.13.0}
+VERSION=${VERSION:-0.14.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_imd}
 
@@ -40,10 +40,9 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$VERSION
+rm -rf $PRGNAM-$VERSION-src
 tar xvf $CWD/$PRGNAM-$VERSION-src.tar.?z*
 cd $PRGNAM-$VERSION-src
-rm $PRGNAM-$VERSION-src
 chown -R root:root .
 find -L . -type f -o -type d \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -60,7 +59,7 @@ cmake \
 	-DLIB_SUFFIX="$LIBDIRSUFFIX" \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DBUILD_SHARED=ON \
-	-DINCLUDE_INSTALLDIR=/usr/include/d/ldc ..
+	..
 make
 make DESTDIR=$PKG install
 cd ..
@@ -71,6 +70,16 @@ find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION/
+cat LICENSE > $PKG/usr/doc/$PRGNAM-$VERSION/LICENSE
+cat README.md > $PKG/usr/doc/$PRGNAM-$VERSION/README.md
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+if [ -n $LIBDIRSUFFIX ]; then
+	mv $PKG/usr/lib/libldc.* $PKG/usr/lib$LIBDIRSUFFIX/
+	rm -rf $PKG/usr/lib/
+fi
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
