@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+            |-----handy-ruler------------------------------------------------------|
+unionfs-fuse: unionfs-fuse - A userspace unionfs implementation.
+unionfs-fuse:
+unionfs-fuse: 2bwm is a fast floating WM with the particularity of having two
+unionfs-fuse: borders, written over the XCB library and derived from mcwm written
+unionfs-fuse: by Michael Cardiell.
+unionfs-fuse: In 2bwm everything is accessible from the keyboard but a pointing
+unionfs-fuse: device can be used to move, resize and raise/lower.
+unionfs-fuse:
+unionfs-fuse:
+unionfs-fuse: Homepage: http://github.com/venam/2bwm
+unionfs-fuse:
