@@ -1,13 +1,11 @@
-2bwm, a floating window manager that features having two borders
+unionfs-fuse - A userspace unionfs implementation.
 
-A fast floating WM, with the particularity of having 2 borders, written over
-the XCB library and derived from mcwm written by Michael Cardell. In 2bwm
-everything is accessible from the keyboard but a pointing device can be used
-for move, resize and raise/lower.
+unionfs-fuse overlays several directories into one single mount point.
+It first tries to access the file on the top branch and if the file
+does not exist there, it continues on lower level branches. If the
+user tries to modify a file on a lower level read-only branch the
+the file is copied to a higher levelread-write branch if the
+copy-on-write mode was enabled.
 
-Homepage: http://github.com/venam/2bwm/
+Homepage: http://expample.com
 
-
-sxhkd is an optional dependency
-if you decide not to use sxhkd, you must replace "sxhkd" with your desired
-program in the xinitrc before you run the SlackBuild
