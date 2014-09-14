@@ -7,5 +7,5 @@ user tries to modify a file on a lower level read-only branch the
 the file is copied to a higher levelread-write branch if the
 copy-on-write mode was enabled.
 
-Homepage: http://expample.com
+Homepage: http://example.com
 
