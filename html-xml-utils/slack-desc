@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+              |-----handy-ruler------------------------------------------------------|
+html-xml-utils: A number of simple utilities for manipulating HTML and XML files.
+html-xml-utils:
+html-xml-utils: Homepage: https://www.w3.org/Tools/HTML-XML-utils/
+html-xml-utils:
+html-xml-utils:
+html-xml-utils:
+html-xml-utils:
+html-xml-utils:
+html-xml-utils:
+html-xml-utils:
+html-xml-utils:
